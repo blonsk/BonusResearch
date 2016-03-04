@@ -3,6 +3,7 @@ package util;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Map.Entry;
 
 import dao.Transaction;
 import util.comparators.TransactionsComparatorDate;
@@ -35,7 +36,7 @@ public Map<String,Object> parseFromFile(BufferedReader br) throws Exception{
 	List<Transaction> transactions = new LinkedList<Transaction>();
 	while((line = br.readLine()) != null){
 		String [] fields = line.split(",");
-		//for(int i = 0; i< fields.length;i++){System.out.print(fields[i] + " " + i +";");}
+		//for(int i = 0; i< fields.length;i++){System.out.print(fields[i] + " " + i +";");}System.out.print(System.lineSeparator());
 		Long id = Long.parseLong(fields[validFields.get("id")]);
 		Date date = df.parse(fields[validFields.get("date")]);
 		String username = fields[validFields.get("username")];
@@ -49,7 +50,7 @@ public Map<String,Object> parseFromFile(BufferedReader br) throws Exception{
 		String createdBy = fields[validFields.get("createdBy")];
 		Double postBalance = Double.parseDouble(fields[validFields.get("postBalance")]);
 		String subType = fields[validFields.get("subType")];
-		System.out.println(System.lineSeparator() + id + date.toString() + username+ type+ subType+ amount+ postBalance+ comment+ createdBy+ status);
+		//System.out.println(System.lineSeparator() + id + date.toString() + username+ type+ subType+ amount+ postBalance+ comment+ createdBy+ status);
 		Transaction transaction = new Transaction(id,date, username, type, subType, amount, postBalance, comment, createdBy, status);
 		transactions.add(transaction);
 	}
@@ -67,7 +68,7 @@ private Map<String, Object> validateFields(String line) {
 	Map<String,Object> result = new HashMap<String,Object>();
 	Map<String, Integer> fieldsMap = new TreeMap<String, Integer>();
 	String [] fields = line.split(",");
-	//for(int i = 0; i< fields.length;i++){System.out.println(fields[i] + " " + i);}
+	for(int i = 0; i< fields.length;i++){System.out.println(fields[i] + " " + i);}
 	for(int i = 0; i < fields.length; i++){
 		switch(fields[i]){
 		case "Date":
@@ -98,6 +99,7 @@ private Map<String, Object> validateFields(String line) {
 	else{
 		result.put("Success",fieldsMap);
 	}
+	for(Entry<String, Integer> entry:((Map<String,Integer>)result.get("Success")).entrySet()) {System.out.println(entry.getKey() + " " + entry.getValue());}
 	return result;
 }
 }
