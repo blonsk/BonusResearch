@@ -42,10 +42,8 @@ public Map<String,Object> parseFromFile(BufferedReader br) throws Exception{
 		String username = fields[validFields.get("username")];
 		String type = fields[validFields.get("type")];
 		Double amount = Double.parseDouble(fields[validFields.get("amount")]);
-		Boolean status = false;
-		if(fields[validFields.get("status")].equals("OK"))
-			status = true;
-		else continue;
+		String status = fields[validFields.get("status")];
+		if(!status.equals("OK")) continue;
 		String comment = fields[validFields.get("comment")];
 		String createdBy = fields[validFields.get("createdBy")];
 		Double postBalance = Double.parseDouble(fields[validFields.get("postBalance")]);

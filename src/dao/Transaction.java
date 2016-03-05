@@ -13,9 +13,9 @@ public class Transaction implements Comparable<Transaction>{
 	Double postBalance;
 	String comment;
 	String createdBy;
-	Boolean status;
+	String status;
 	public Transaction(long tranactionId,Date date, String username, String type, String subType, Double amount, Double postBalance,
-			String comment, String createdBy, Boolean status) {
+			String comment, String createdBy, String status) {
 		super();
 		this.tranactionId = tranactionId;
 		this.date = date;
@@ -76,10 +76,10 @@ public class Transaction implements Comparable<Transaction>{
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	

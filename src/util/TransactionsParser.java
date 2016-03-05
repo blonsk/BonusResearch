@@ -37,14 +37,22 @@ public class TransactionsParser {
 		List<Transaction> transactions = new LinkedList<Transaction>();
 		while(iteratorRows.hasNext()){
 			row = iteratorRows.next();
-			Iterator<Cell> iteratorCells = row.cellIterator();
 			String status = row.getCell(validFields.get("status")).toString();
 			if(!status.equals("OK")) continue;
 			Date date = df.parse(row.getCell(validFields.get("date")).toString());
-			long id = Long.parseLong(row.getCell(validFields.get("id")).toString());
+			Double doubleId = row.getCell(validFields.get("id")).getNumericCellValue();
+			long id = doubleId.longValue();
 			double amount = row.getCell(validFields.get("amount")).getNumericCellValue();
-			
-			System.out.println(System.lineSeparator());
+			double postBalance = row.getCell(validFields.get("postBalance")).getNumericCellValue();
+			String username = row.getCell(validFields.get("username")).toString();
+			String type = row.getCell(validFields.get("type")).toString();
+			String subType = row.getCell(validFields.get("subType")).toString();
+			String comment = row.getCell(validFields.get("comment")).toString();
+			String createdBy = row.getCell(validFields.get("createdBy")).toString();
+			Transaction transaction = new Transaction(id,date, username, type, subType, amount, postBalance,
+					comment, createdBy, status);
+			transactions.add(transaction);
+			System.out.println(transaction.toString());
 		}
 		return result;
 	}
