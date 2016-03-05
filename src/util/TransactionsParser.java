@@ -3,7 +3,6 @@ package util;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Map.Entry;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
@@ -34,7 +33,6 @@ public class TransactionsParser {
 		if(validFields == null){
 			return validateFields(row);
 		}
-		List<Transaction> transactions = new LinkedList<Transaction>();
 		while(iteratorRows.hasNext()){
 			row = iteratorRows.next();
 			String status = row.getCell(validFields.get("status")).toString();
@@ -51,9 +49,10 @@ public class TransactionsParser {
 			String createdBy = row.getCell(validFields.get("createdBy")).toString();
 			Transaction transaction = new Transaction(id,date, username, type, subType, amount, postBalance,
 					comment, createdBy, status);
-			transactions.add(transaction);
-			System.out.println(transaction.toString());
+			this.trs.add(transaction);
 		}
+		if(this.trs != null) result.put("Success", this.trs);
+		else result.put("Error", "There are not complete transactions");
 		return result;
 	}
 
@@ -96,7 +95,7 @@ public class TransactionsParser {
 		else{
 			result.put("Success",fieldsMap);
 		}
-		for(Entry<String, Integer> entry:fieldsMap.entrySet()) {System.out.println(entry.getKey() + " " + entry.getValue());}
+		//for(Entry<String, Integer> entry:fieldsMap.entrySet()) {System.out.println(entry.getKey() + " " + entry.getValue());}
 		return result;
 	}
 }
