@@ -5,34 +5,34 @@ import java.util.Date;
 public class Transaction implements Comparable<Transaction>{
 	
 	long tranactionId;
-	Date date;
+	Date transactionDate;
 	String username;
-	String type;
-	String subType;
-	Double amount;
+	String transactionType;
+	String transactionSubType;
+	Double transactionAmount;
 	Double postBalance;
-	String comment;
-	String createdBy;
-	String status;
-	public Transaction(long tranactionId,Date date, String username, String type, String subType, Double amount, Double postBalance,
+	String transactionComment;
+	String transactionCreator;
+	String transactionStatus;
+	public Transaction(long tranactionId,Date transactionDate, String username, String transactionType, String subType, Double amount, Double postBalance,
 			String comment, String createdBy, String status) {
 		super();
 		this.tranactionId = tranactionId;
-		this.date = date;
+		this.transactionDate = transactionDate;
 		this.username = username;
-		this.type = type;
-		this.subType = subType;
-		this.amount = amount;
+		this.transactionType = transactionType;
+		this.transactionSubType = subType;
+		this.transactionAmount = amount;
 		this.postBalance = postBalance;
-		this.comment = comment;
-		this.createdBy = createdBy;
-		this.status = status;
+		this.transactionComment = comment;
+		this.transactionCreator = createdBy;
+		this.transactionStatus = status;
 	}
-	public Date getDate() {
-		return date;
+	public Date getTransactionDate() {
+		return transactionDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setTransactionDate(Date date) {
+		this.transactionDate = date;
 	}
 	public String getUsername() {
 		return username;
@@ -40,23 +40,23 @@ public class Transaction implements Comparable<Transaction>{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getType() {
-		return type;
+	public String getTransactionType() {
+		return transactionType;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setTransactionType(String type) {
+		this.transactionType = type;
 	}
-	public String getSubType() {
-		return subType;
+	public String getTransactionSubType() {
+		return transactionSubType;
 	}
-	public void setSubType(String subType) {
-		this.subType = subType;
+	public void setTransactionSubType(String subType) {
+		this.transactionSubType = subType;
 	}
 	public Double getAmount() {
-		return amount;
+		return transactionAmount;
 	}
 	public void setAmount(Double amount) {
-		this.amount = amount;
+		this.transactionAmount = amount;
 	}
 	public Double getPostBalance() {
 		return postBalance;
@@ -65,29 +65,29 @@ public class Transaction implements Comparable<Transaction>{
 		this.postBalance = postBalance;
 	}
 	public String getComment() {
-		return comment;
+		return transactionComment;
 	}
 	public void setComment(String comment) {
-		this.comment = comment;
+		this.transactionComment = comment;
 	}
-	public String getCreatedBy() {
-		return createdBy;
+	public String getTransactionCreator() {
+		return transactionCreator;
 	}
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+	public void setTransactionCreator(String createdBy) {
+		this.transactionCreator = createdBy;
 	}
 	public String getStatus() {
-		return status;
+		return transactionStatus;
 	}
 	public void setStatus(String status) {
-		this.status = status;
+		this.transactionStatus = status;
 	}
 	
 	@Override
 	public String toString() {
-		return "Transaction [tranactionId=" + tranactionId + ", date=" + date + ", username=" + username + ", type="
-				+ type + ", subType=" + subType + ", amount=" + amount + ", postBalance=" + postBalance + ", comment="
-				+ comment + ", createdBy=" + createdBy + ", status=" + status + "]";
+		return "Transaction [tranactionId=" + tranactionId + ", date=" + transactionDate + ", username=" + username + ", type="
+				+ transactionType + ", subType=" + transactionSubType + ", amount=" + transactionAmount + ", postBalance=" + postBalance + ", comment="
+				+ transactionComment + ", createdBy=" + transactionCreator + ", status=" + transactionStatus + "]";
 	}
 	@Override
 	public boolean equals(Object arg0) {
@@ -97,9 +97,9 @@ public class Transaction implements Comparable<Transaction>{
 	}
 	@Override
 	public int compareTo(Transaction arg0) {
-		if(this.date.compareTo(arg0.date) > 0)
+		if(this.transactionDate.compareTo(arg0.transactionDate) > 0)
 			return 1;
-		else if(this.date.compareTo(arg0.date) < 0)
+		else if(this.transactionDate.compareTo(arg0.transactionDate) < 0)
 			return -1;
 		return 0;
 	}

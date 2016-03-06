@@ -38,14 +38,14 @@ public class DealParser {
 		Map<String, Integer> fieldsNames =  (Map<String, Integer>) validFields.get("Success");
 		while((line = reader.readLine()) != null){
 			String [] fields = line.split(",");
-			String username = fields[fieldsNames.get("username")];
+			String userName = (fields[fieldsNames.get("userName")]);
 			long id = Integer.parseInt(fields[1]);
 			String asset = fields[fieldsNames.get("asset")];
 			String direction = fields[fieldsNames.get("direction")];
 			Date openD = df.parse(fields[fieldsNames.get("openD")]);
 			Date closeD = df.parse(fields[fieldsNames.get("closeD")]);
 			Double volume = Double.parseDouble(fields[fieldsNames.get("volume")]);
-			Deal deal = new Deal(id,asset,direction,openD,closeD,volume,username);
+			Deal deal = new Deal(id,asset,direction,openD,closeD,volume,userName);
 			deals.add(deal);
 			dealsSorter(deal);
 		}
@@ -81,7 +81,7 @@ public class DealParser {
 				case "Deal ID":
 					fieldsMap.put("ID", i);
 				case "Username":
-					fieldsMap.put("username", i);
+					fieldsMap.put("userName", i);
 				case "Symbol":
 					fieldsMap.put("asset", i);
 				case "Long/Short":

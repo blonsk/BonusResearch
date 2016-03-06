@@ -1,12 +1,18 @@
 package controller;
 
-import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import dao.FieldsNames;
 import util.TransactionsParser;
 
 public class Controller {
 public static void main(String [] args) throws Throwable{
-	TransactionsParser trParser = new TransactionsParser("Report.xlsx");
-	System.out.println(trParser.parseFromFile().keySet());
+	
+	System.out.println(FieldsNames.getFieldsNames().keySet());
+	System.out.println(FieldsNames.getFieldsNames().values());
+	
 }
 }

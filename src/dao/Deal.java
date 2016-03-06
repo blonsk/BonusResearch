@@ -2,8 +2,8 @@ package dao;
 
 import java.util.*;
 
-public class Deal implements Comparable{
-long id;
+public class Deal {
+long dealId;
 String userName;
 String direction;
 String asset;
@@ -12,27 +12,33 @@ Double pNl;
 Date openDate;
 Date closeDate;
 Double lockedVolume;
+Double postBalance;
+String openReason;
+String closeReason;
+String tradingSystem;
+Double pnlPips;
 
 public Deal() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Deal(long id, String asset, String direction,   Date openDate, Date closeDate, Double volume, String username) {
+public Deal(long id, String asset, String direction,   Date openDate, Date closeDate, Double volume,  String userName) {
 	super();
-	this.id = id;
+	this.dealId = id;
 	this.direction = direction;
 	this.asset = asset;
 	this.volume = volume;
 	this.openDate = openDate;
 	this.closeDate = closeDate;
 	this.lockedVolume = 0.0;
-	this.userName = username;
+	this.userName = userName;
+
 }
-public long getId() {
-	return id;
+public long getDealId() {
+	return dealId;
 }
-public void setId(int id) {
-	this.id = id;
+public void setDealId(int dealId) {
+	this.dealId = dealId;
 }
 public String getUserName() {
 	return userName;
@@ -86,14 +92,9 @@ public void setLockedVolume(Double lockedVolume) {
 
 @Override
 public String toString() {
-	return "Deal [id=" + id + ", userName=" + userName + ", direction=" + direction + ", asset=" + asset + ", volume="
+	return "Deal [id=" + dealId + ", userName=" + userName + ", direction=" + direction + ", asset=" + asset + ", volume="
 			+ volume + ", pNl=" + pNl + ", openDate=" + openDate + ", closeDate=" + closeDate + ", lockedVolume="
 			+ lockedVolume + "]";
-}
-@Override
-public int compareTo(Object arg0) {
-	// TODO Auto-generated method stub
-	return 0;
 }
 
 }
