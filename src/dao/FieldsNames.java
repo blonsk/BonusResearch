@@ -73,7 +73,7 @@ public static Map<String,Integer> boSystem = new HashMap<String,Integer>();
 		boSystem.put("Deltix",1);
 	}
 
-public static Map<Integer,DateFormat> dateFormat;
+public static Map<Integer,DateFormat> dateFormat = new HashMap<Integer,DateFormat>();
 static{
 	dateFormat.put(0, new SimpleDateFormat("MM/dd/yyyy hh:mm:ss"));
 	dateFormat.put(1, new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"));

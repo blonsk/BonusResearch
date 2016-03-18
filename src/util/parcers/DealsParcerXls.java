@@ -17,8 +17,7 @@ public class DealsParcerXls extends DealsParser {
 	String filePath;
 	Workbook workbook;
 	DateFormat df;
-	Map<String,Map<String,Set<Deal>>> sortedDeals;
-	DealsSorter dealsSorter; 
+	
 	
 	public DealsParcerXls(String boSystem,String filePath) throws Exception {
 		super(boSystem);
@@ -26,7 +25,6 @@ public class DealsParcerXls extends DealsParser {
 		FileInputStream inputStream = new FileInputStream(new File(filePath));
 		this.workbook = new XSSFWorkbook(inputStream);
 		this.df = FieldsNames.dateFormat.get(boSystem);
-		this.dealsSorter = new DealsSorter(this.sortedDeals);
 	}
 
 	@SuppressWarnings("unchecked")
