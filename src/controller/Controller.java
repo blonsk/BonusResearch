@@ -10,9 +10,7 @@ import util.TransactionsParser;
 
 public class Controller {
 public static void main(String [] args) throws Throwable{
-	
-	System.out.println(FieldsNames.getFieldsNames().keySet());
-	System.out.println(FieldsNames.getFieldsNames().values());
+
 	
 }
 }

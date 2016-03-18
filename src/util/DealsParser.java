@@ -9,8 +9,8 @@ import interfaces.ParcerInterface;
 public abstract class DealsParser implements ParcerInterface {
 
 	
-	Set<Deal> deals;
-	Map<String,Integer> validFields;
+	protected Set<Deal> deals;
+	protected Map<String,Integer> validFields;
 	protected int boSystem;
 	
 	public DealsParser(String boSystem) {

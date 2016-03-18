@@ -16,6 +16,7 @@ public class DlsParser {
 	Workbook workbook;
 	Map<String,Map<String,Set<Deal>>> sortedDeals;
 	List<Deal> dealsList;
+	int dealsCount;
 	
 	public DlsParser(String filePath) throws Exception {
 		super();
